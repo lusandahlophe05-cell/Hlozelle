@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Button</title>
+    </head>
+    <body>
+
+        <!--Add the buttons to the page with HTML-->
+        <button type="button" id="heyBtn">HeyRtn!</button>
+        <button type="button" id="supBtn">SupNoRtn</button>
+
+        <!--Add a text element to display the time-->
+        <p id="timeText"> here is the time</p>
+
+        <!--Style the buttons with CSS-->
+        <style>
+            #heyBtn {
+            background-color: #4CAF50; /* Green background */
+            color: white;              /* White text */
+            padding: 15px 32px;        /* Internal spacing */
+            font-size: 16px;           /* Text size */
+            border-radius: 8px;        /* Rounded corners */
+            cursor: pointer;           /* Hand cursor on hover */
+            }
+
+            #heyBtn:hover {
+            background-color: #45a049; /* Darker green on hover */
+            }
+            #supBtn {
+            background-color: #2345d8; /* Green background */
+            color: white;              /* White text */
+            padding: 15px 32px;        /* Internal spacing */
+            font-size: 16px;           /* Text size */
+            border-radius: 8px;        /* Rounded corners */
+            cursor: pointer;           /* Hand cursor on hover */
+            }
+
+            #supBtn:hover {
+            background-color: #270674; /* Darker green on hover */
+            }
+        </style>
+
+        <script>
+            //Create a reference to the button
+            const heyBtn = document.getElementById("heyBtn");
+            const supBtn = document.getElementById("supBtn");
+
+            //This function returns a string that can be retrieved for print
+            function HeyButton()
+            {
+                return "Hey."
+            }
+
+            //This function does the alert when called
+            function SupButton()
+            {
+                alert("Sup.");
+            }
+
+            //
+            //Add event listeners for when the buttons are clicked
+            //            
+            //For this button an 'anonymous' function is used to get the return value. The result is then sent to the alert.
+            heyBtn.addEventListener("click", function event(result)
+            {
+                var result = HeyButton();
+                alert(result);
+            });
+            //For this button only the function is called without a return value
+            supBtn.addEventListener("click", SupButton, {} );
+
+            //Time stuff
+            //This function will get the current time and set it on the HTML element
+            function SetTimeDisplay()
+            {
+                const d = new Date();
+                const dayArray = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                let today = dayArray[d.getDay()];
+                let timeString = d.getHours().toString().padStart(2,'0') + ":" + d.getMinutes().toString().padStart(2,'0') + " " + today;
+                document.getElementById("timeText").textContent = timeString;
+            }            
+
+            //setInterval will automatically call the given function every Xms
+            var id = setInterval(SetTimeDisplay, 1000 );
+        </script>
+    </body>
+</html>
