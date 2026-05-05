@@ -4,16 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Simple Button</title>
-    </head>
-    <body>
-
-        <!--Add the buttons to the page with HTML-->
-        <button type="button" id="heyBtn">HeyRtn!</button>
-        <button type="button" id="supBtn">SupNoRtn</button>
-
-        <!--Add a text element to display the time-->
-        <p id="timeText"> here is the time</p>
-
         <!--Style the buttons with CSS-->
         <style>
             #heyBtn {
@@ -42,21 +32,38 @@
             }
         </style>
 
+    </head>
+    <body>
+
+        <!--Add the buttons to the page with HTML-->
+        <button type="button" id="heyBtn">HeyRtn!</button>
+        <button type="button" id="supBtn">SupNoRtn</button>
+        <button type="button" id="princess">button</button>
+
+        <!--Add a text element to display the time-->
+        <p id="timeText"> here is the time</p>
+
+        
         <script>
             //Create a reference to the button
             const heyBtn = document.getElementById("heyBtn");
             const supBtn = document.getElementById("supBtn");
+            const princess = document.getElementById("princess");
 
             //This function returns a string that can be retrieved for print
             function HeyButton()
             {
-                return "Hey."
+                return "Hey Priness.";
             }
 
             //This function does the alert when called
             function SupButton()
             {
                 alert("Sup.");
+            }
+            function myButton()
+            {
+                return "this is my Button";
             }
 
             //
@@ -70,6 +77,13 @@
             });
             //For this button only the function is called without a return value
             supBtn.addEventListener("click", SupButton, {} );
+
+            princess.addEventListener("click",function event(result)
+            {
+                var result = myButton();
+                alert(result);
+            });
+            
 
             //Time stuff
             //This function will get the current time and set it on the HTML element
